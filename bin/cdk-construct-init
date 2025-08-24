@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+// Delegates to the compiled CLI. Prefer dist/index.js if present (packaged),
+// otherwise fall back to lib/index.js for local dev.
+
+const { existsSync } = require('fs');
+const { join } = require('path');
+
+const distEntry = join(__dirname, '..', 'dist', 'index.js');
+const libEntry = join(__dirname, '..', 'lib', 'index.js');
+
+if (existsSync(distEntry)) {
+  require(distEntry);
+} else if (existsSync(libEntry)) {
+  require(libEntry);
+} else {
+  console.error('Unable to locate compiled entry. Tried dist/index.js and lib/index.js');
+  process.exit(1);
+}

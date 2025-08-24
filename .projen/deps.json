@@ -11,6 +11,7 @@
     },
     {
       "name": "@types/node",
+      "version": "^20",
       "type": "build"
     },
     {
@@ -57,6 +58,11 @@
     },
     {
       "name": "projen",
+      "type": "build"
+    },
+    {
+      "name": "simple-git-hooks",
+      "version": "^2.9.0",
       "type": "build"
     },
     {
