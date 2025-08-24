@@ -1,5 +1,14 @@
 {
   "name": "projen-cdk-init",
+  "description": "Scaffold a Projen CDK construct project with npm registry on AWS CodeArtifact",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waltervargas/projen-cdk-init"
+  },
+  "bin": {
+    "cdk-construct-init": "bin/cdk-construct-init",
+    "projen-cdk-init": "bin/cdk-construct-init"
+  },
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",
@@ -20,10 +29,15 @@
     "watch": "npx projen watch",
     "projen": "npx projen"
   },
+  "author": {
+    "name": "Walter Vargas",
+    "email": "w@walter.bio",
+    "organization": true
+  },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.3.0",
+    "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "commit-and-tag-version": "^12",
@@ -38,8 +52,20 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
+  "keywords": [
+    "aws",
+    "cdk",
+    "codeartifact",
+    "construct",
+    "projen",
+    "scaffold"
+  ],
+  "engines": {
+    "node": ">= 18.0.0"
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "homepage": "https://github.com/waltervargas/projen-cdk-init#readme",
   "publishConfig": {
     "access": "public"
   },
