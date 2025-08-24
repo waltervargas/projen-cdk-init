@@ -5,7 +5,7 @@ const project = new typescript.TypeScriptProject({
   projenrcTs: true,
   packageName: 'projen-cdk-init',
   description: 'Scaffold a Projen CDK construct project with npm registry on AWS CodeArtifact',
-  
+
   // npm package metadata and distribution settings
   authorName: 'Walter Vargas',
   authorEmail: 'w@walter.bio',
@@ -27,4 +27,12 @@ const project = new typescript.TypeScriptProject({
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
 });
+
+// Pre-commit: ensure ESLint runs locally before commits
+project.addDevDeps('simple-git-hooks@^2.9.0');
+project.setScript('prepare', 'simple-git-hooks');
+project.package.addField('simple-git-hooks', {
+  'pre-commit': 'npx projen eslint',
+});
+
 project.synth();
